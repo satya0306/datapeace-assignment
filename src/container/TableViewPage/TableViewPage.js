@@ -5,7 +5,6 @@ import axios from 'axios';
 import './TableViewPage.css';
 import Search from '../../componets/Search/Search';
 import Footer from '../../componets/Footer/Footer';
-import DetailPage from '../Detail/DetailPage';
 // import Pagination from '../Pagination/Pagination';
 
 class TableViewPage extends Component {
@@ -20,40 +19,12 @@ class TableViewPage extends Component {
             })
     }
     
-    clickedHandler=(value)=>{
-        console.log(value)
-        this.setState({candidates: value});
-        console.log(this.state.candidates);
-        // this.props.history.push('/user/' + id);
-    }
-
     render() {
-        const array=[];
-        for(let key in this.state.candidates){
-            array.push({
-                ...this.state.candidates[key],
-                id: key
-            })
-            console.log(array)
-        }
-
         return (
             <div className='TableView'>
                 <Search/>
                 <TableContent 
                     candidates={this.state.candidates}/>
-
-                <DetailPage id={2}/>
-                
-                {/* {this.state.candidates.map(arr=>(
-                    <DetailPage key={arr.id} candidates={arr.first_name}/>
-                ))} */}
-                
-                {/* {this.state.candidates.map(cand=>{
-                    return(<DetailPage 
-                        key={cand.id}
-                        candidates={cand}/>)
-                })}  */}
                 <Footer/>
             </div>
         );

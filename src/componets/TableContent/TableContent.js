@@ -1,9 +1,10 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
+import { withRouter } from "react-router";
 import './TableContent.css';
 
 const TableContent= (props)=>{
-
+        console.log(props.match.params);
     return(
         <div>
             <table>
@@ -20,7 +21,10 @@ const TableContent= (props)=>{
                 </tr>
                 {props.candidates.map(candidate =>{
                     return (<tr key={candidate.id}>
-                        <Link to={'/user/'+ candidate.id}><td>
+                        <Link to={{
+                            pathname:'/user/'+candidate.id,
+                            state:{candidate:candidate}
+                        }}><td>
                             {candidate.first_name}
                         </td></Link>
                         <td>{candidate.last_name}</td>
@@ -41,4 +45,4 @@ const TableContent= (props)=>{
 }
     
 
-export default TableContent;
+export default withRouter(TableContent);

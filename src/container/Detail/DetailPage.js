@@ -1,18 +1,15 @@
 import React, { Component } from 'react';
+import { withRouter } from "react-router";
 
 class DetailPage extends Component {
     state={
-        candidates:[]
+        candidate: this.props.location.state.candidate
     }
 
         render(){
-            for(let cand in this.props.candidates){
-                this.state.candidates.push(this.props.candidates[cand]);
-            }
-            console.log(this.state.candidates)
             return(
                 <div>
-                    <h3>{this.props.first_name} {this.props.last_name}</h3>
+                    <h3>{this.state.candidate.first_name} {this.state.candidate.last_name}</h3>
                     <table>
                         <tr>
                             <th>Company Name</th>
@@ -24,13 +21,13 @@ class DetailPage extends Component {
                             <th>Age</th>
                         </tr>
                         <tr>
-                            <td>{this.props.company_name}</td>
-                            <td>{this.props.city}</td>
-                            <td>{this.props.state}</td>
-                            <td>{this.props.zip}</td>
-                            <td>{this.props.email}</td>
-                            <td>{this.props.web}</td>
-                            <td>{this.props.age}</td>
+                            <td>{this.state.candidate.company_name}</td>
+                            <td>{this.state.candidate.city}</td>
+                            <td>{this.state.candidate.state}</td>
+                            <td>{this.state.candidate.zip}</td>
+                            <td>{this.state.candidate.email}</td>
+                            <td>{this.state.candidate.web}</td>
+                            <td>{this.state.candidate.age}</td>
                         </tr>
                     </table>
                 </div>
@@ -38,4 +35,4 @@ class DetailPage extends Component {
     }    
 }
 
-export default DetailPage;
+export default withRouter(DetailPage);
