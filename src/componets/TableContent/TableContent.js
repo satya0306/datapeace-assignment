@@ -22,7 +22,7 @@ const TableContent= (props)=>{
                 {props.candidates.map(candidate =>{
                     return (<tr key={candidate.id}>
                         <Link to={{
-                            pathname:'/user/'+candidate.id,
+                            pathname:'/user/' + candidate.id,
                             state:{candidate:candidate}
                         }}><td>
                             {candidate.first_name}
