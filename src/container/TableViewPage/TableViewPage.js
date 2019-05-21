@@ -28,11 +28,9 @@ class TableViewPage extends Component {
     }
 
     render() {
-        let tableContent = null;
         let pagination = null;
 
         if(this.state.candidates){
-            // tableContent = (<TableContent candidates={this.state.candidates}/>);
             pagination = (<Pagination candidates={this.state.candidates}
                                       currentPage = {this.state.currentPage} 
                                       pagPerPage = {this.state.pagPerPage}
@@ -41,7 +39,6 @@ class TableViewPage extends Component {
         return (
             <div className='TableView'>
                 <Search candidates={this.state.candidates}/>
-                {tableContent}
                 {pagination}
             </div>
         );

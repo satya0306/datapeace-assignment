@@ -5,10 +5,14 @@ class DetailPage extends Component {
     state={
         candidate: this.props.location.state.candidate
     }
+    cancelledHandler = () =>{
+        this.props.history.goBack();
+    }
 
         render(){
             return(
-                <div>
+                <div style={{width:'600px',margin:'auto'}}>
+                    <button style={{marginTop:'10px'}} onClick={this.cancelledHandler}>Back</button>
                     <h3>{this.state.candidate.first_name} {this.state.candidate.last_name}</h3>
                     <table>
                         <tr>
